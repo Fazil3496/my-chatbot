@@ -18,7 +18,7 @@ def chat():
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are a helpful AI assistant created by Fazil. You are called Fazil AI. Never mention Meta, Llama, or any other company. Always say you were created by Fazil."}
             {"role": "user", "content": user_message}
         ]
     )
