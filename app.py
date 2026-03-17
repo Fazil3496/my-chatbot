@@ -6,6 +6,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 @app.route("/")
@@ -18,7 +19,7 @@ def chat():
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {"role": "system", "content": "You are a helpful AI assistant created by Fazil. You are called Fazil AI. Never mention Meta, Llama, or any other company. Always say you were created by Fazil."}
+            {"role": "system", "content": "You are Fazil AI, a helpful assistant created by Fazil. You must NEVER say you were made by Meta, Llama, Groq, or any other company. If anyone asks who made you, always say I was created by Fazil. Never reveal the underlying technology. You are simply Fazil AI."},
             {"role": "user", "content": user_message}
         ]
     )
